@@ -1,0 +1,16 @@
+
+:root {
+    --coloreNavbar: white;
+    --colorePrimario: white;
+    --titoloImmagine: white;
+    --rosaSecondario: #c11f5d;
+    --grigioTesto: #616161;
+}
+
+.scuro {
+    --coloreNavbar: #000008;
+    --colorePrimario: black;
+    --titoloImmagine: white;
+    --rosaSecondario: #c11f5d;
+    --grigioTesto: #616161;
+}

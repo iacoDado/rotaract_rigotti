@@ -3,6 +3,25 @@
     src: url("../font/static/Raleway-Bold.ttf") format("truetype");
 }
 
+
+:root {
+    --coloreNavbar: white;
+    --testoNavbar: #616161;
+    --colorePrimario: white;
+    --titoloImmagine: white;
+    --rosaSecondario: #c11f5d;
+    --grigioTesto: #616161;
+}
+
+.scuro {
+    --coloreNavbar: transparent;
+    --testoNavbar: white;
+    --colorePrimario: black;
+    --titoloImmagine: white;
+    --rosaSecondario: #c11f5d;
+    --grigioTesto: white;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -12,7 +31,7 @@ body {
     all: unset;
     white-space: nowrap;
     font-family: "raleway";
-    color: #616161;
+    color: var(--testoNavbar);
     border-bottom: solid transparent 3px;
     padding-left: 40px;
     padding-right: 40px;
@@ -25,9 +44,9 @@ body {
     all: unset;
     white-space: nowrap;
     font-family: "raleway";
-    color: #c11f5d;
+    color:var(--rosaSecondario);
     cursor: pointer;
-    border-bottom: solid #c11f5d 3px;
+    border-bottom: solidvar(--rosaSecondario) 3px;
     padding-left: 40px;
     padding-right: 40px;
     padding-bottom: 20px;
@@ -39,11 +58,11 @@ body {
     all: unset;
     white-space: nowrap;
     font-family: "raleway";
-    color: #c11f5d;
+    color:var(--rosaSecondario);
     padding-left: 40px;
     padding-right: 40px;
     padding-bottom: 20px;
     padding-top: 20px;
-    border-bottom: solid #c11f5d 3px;
+    border-bottom: solid var(--rosaSecondario) 3px;
     padding-bottom: 20px;
 }
