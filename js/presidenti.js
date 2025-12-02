@@ -5,23 +5,38 @@ const nome = document.getElementById("nome");
 const dataInizio = document.getElementById("dataInizio");
 const dataFine = document.getElementById("dataFine");
 const yearToday = new Date().getFullYear();
-const yearMin = new Date().setFullYear(1900);
+const yearMinAbsolute = 1900;
 
-dataInizio.setAttribute("min", 1900);
+dataInizio.setAttribute("min", yearMinAbsolute);
 dataInizio.setAttribute("max", yearToday);
-dataInizio.value.addEventListener("onclick", event => {check(event)});
-function check(event){
-    if (dataInizio.value != ""){
-        event.preventDefault();
-        dataFine.setAttribute("min", dataInizio.value);
-    }
-}
+dataFine.setAttribute("max", yearToday + 1);
 
-dataFine.setAttribute("max", yearToday);
 
 function controllo(){
     if(nome.value == "" || dataInizio.value == "" || dataFine.value == ""){
         alert("CAMPI VUOTI");
-        e.preventDefault();
+        //e.preventDefault();
     }
 }
+
+
+function aggiornaDataFineMinimo() {
+    const annoNascita = parseInt(dataInizio.value);
+
+    // Controlla che l'input non sia vuoto e sia un numero valido
+    if (!isNaN(annoNascita) && annoNascita >= yearMinAbsolute && annoNascita <= yearToday) {
+
+        dataFine.setAttribute("min", annoNascita);
+        const annoMorte = parseInt(dataFine.value);
+
+
+        if (!isNaN(annoMorte) && annoMorte < annoNascita) {
+            dataFine.value = annoNascita;
+        }
+    } else {
+        dataFine.removeAttribute("min");
+    }
+}
+
+
+dataInizio.addEventListener("input", aggiornaDataFineMinimo);
