@@ -101,7 +101,6 @@ Array.from(divs).forEach(div => {
 creaLineaTempo();
 
 //rifare gestione errori per tutto
-//rifare CSS per adattarlo alla costruzione dinamica
 
 async function creaLineaTempo() {
     var jsonPresidenti = await caricaPresidenti();
@@ -123,22 +122,23 @@ function costruisciLineaTempo(nRighe, offStart, listaPresidenti) {
 
     var aDiv = costruisciTabella(parseInt(listaPresidenti[0].mandato.split("-")[0]), nRighe, 11, "tabTempo");
 
-    var ctr = offStart;
-    var ia = 9;
+    var offsetDiv = 0;
+    var ctr = offStart + 1;
     listaPresidenti.forEach(presidente => {
-        //problema: facendo anno + ia il presidente per l'anno viene sbagliato; megli ciclare sui div a sto punto
         if (ctr%11==0) {
             aDiv[ctr].className = "";
             ctr ++;
         }
-        var div = aDiv[ctr];
-        div.addEventListener("mouseenter", handleMouseEnter);
-        div.addEventListener("mouseleave", handleMouseLeave);
+        
+        var div;
+        
 
         var anno = parseInt(presidente.mandato.split("-")[0]);
         var annod;
         if (Math.floor(parseInt(anno/10))%2==1) {
-            anno = (anno + ia)%100;
+            div = aDiv[ctr + 9 - offsetDiv];
+
+            anno = (anno )%100;
             annod = (anno+1)%100;
             if (annod.toString().length<2) {
                 annod="0"+annod
@@ -146,13 +146,17 @@ function costruisciLineaTempo(nRighe, offStart, listaPresidenti) {
             if (anno.toString().length<2) {
                 anno="0"+anno
             }
-            ia -= 2;
 
             div.setAttribute("data-anno", "'" + anno + "-" + "'" +  annod);
             div.setAttribute("data-nome", presidente.nome);
             div.innerHTML = "'" + anno + "-" + "'" +  annod;
             div.parentElement.setAttribute("data-anno", "'" + anno + "-" + "'" +  annod);
+
+            offsetDiv += 2;
         } else {
+            offsetDiv = 0;
+
+            div = aDiv[ctr];
             anno = anno%100
             annod = (anno+1)%100;
             if (annod.toString().length<2) {
@@ -161,13 +165,15 @@ function costruisciLineaTempo(nRighe, offStart, listaPresidenti) {
             if (anno.toString().length<2) {
                 anno="0"+anno
             }
-            ia = 9;
 
             div.setAttribute("data-anno", "'" + anno + "-" + "'" +  annod);
             div.setAttribute("data-nome", presidente.nome);
             div.innerHTML = "'" + anno + "-" + "'" +  annod;
             div.parentElement.setAttribute("data-anno", "'" + anno + "-" + "'" +  annod);
         }
+
+        div.addEventListener("mouseenter", handleMouseEnter);
+        div.addEventListener("mouseleave", handleMouseLeave);
         
 
         ctr ++;
