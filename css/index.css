@@ -3,7 +3,6 @@
     src: url("../font/static/Raleway-Light.ttf") format("truetype");
 }
 
-
 .carosello-container {
     position: relative;
     width: 800px;
@@ -91,6 +90,7 @@
 
 body {
     font-family: 'Raleway';
+    background-color: var(--colorePrimario);
 }
 
 .container {
@@ -109,7 +109,7 @@ body {
     top: 40%;
     left: 25%;
     position: absolute;
-    color: #FFFF;
+    color: var(--titoloImmagine);
     transform: translate(0%, -50%);
     text-align: left;
 }
@@ -125,11 +125,11 @@ body {
 }
 
 .testo button {
-    border: 2px solid #c11f5d;
+    border: 2px solid var(--rosaSecondario);
     width: 160px;
     height: 50px;
-    background-color: #c11f5d;
-    color: white;
+    background-color: var(--rosaSecondario);
+    color: var(--colorePrimario);
     font-size: 16px;
     border-radius: 30px;
     margin-top: 5px;
@@ -150,14 +150,14 @@ body {
 }
 
 .numeri h1 {
-    color:#c11f5d;
+    color:var(--rosaSecondario);
     font-size: 60px;
     font-weight: bold;
     margin-bottom: 0px;
 }
 
 .numeri h2 {
-    color: #616161;
+    color: var(--grigioTesto);
 }
 
 .numeri div {
@@ -176,7 +176,7 @@ body {
 }
 
 .sezioneFinale h1 {
-    color:#c11f5d;
+    color: var(--rosaSecondario);
     font-size: 40px;
     font-weight: bold;
     display: flex;
@@ -191,11 +191,11 @@ body {
 }
 
 .testiSFinale button {
-    border: 2px solid #c11f5d;
+    border: 2px solid var(--rosaSecondario);
     width: 250px;
     height: 50px;
-    background-color: #c11f5d;
-    color: white;
+    background-color: var(--rosaSecondario);
+    color: var(--colorePrimario);
     font-size: 16px;
     border-radius: 30px;
     margin-top: 5px;
@@ -211,7 +211,7 @@ body {
     display: flex;
     white-space: pre-wrap;
     font-family: 'ralewayY';
-    color: #616161;
+    color: var(--grigioTesto);
 }
 
 .sezioneFinale img {
