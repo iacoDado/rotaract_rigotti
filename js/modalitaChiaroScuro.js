@@ -1,30 +1,33 @@
-let darkmode = localStorage.getItem('scuro');
 const themeSwitch = document.getElementById('themeSwitch');
-
-
 
 const enableDarkmode = () => {
   document.body.classList.add('scuro');
   localStorage.setItem('scuro', 'active');
-  document.getElementById('sfondo').src = 'media/backgroundHomeScuro.jpg';
+
+  const sfondo = document.getElementById('sfondo');
+  if (sfondo) sfondo.src = 'media/backgroundHomeScuro.jpg';
 }
 
 const disableDarkmode = () => {
   document.body.classList.remove('scuro');
   localStorage.setItem('scuro', 'inactive');
-  document.getElementById('sfondo').src = 'media/backgroundHome.jpg';
+
+  const sfondo = document.getElementById('sfondo');
+  if (sfondo) sfondo.src = 'media/backgroundHome.jpg';
 }
 
 // Carica modalità all'avvio
-if (darkmode === "active") {
+if (localStorage.getItem('scuro') === 'active') {
   enableDarkmode();
 }
 
-themeSwitch.addEventListener("click", () => {
-  darkmode = localStorage.getItem('scuro');
-  if (darkmode !== "active") {
-    enableDarkmode();
-  } else {
-    disableDarkmode();
-  }
-});
+// Toggle
+if (themeSwitch) {
+  themeSwitch.addEventListener("click", () => {
+    if (document.body.classList.contains('scuro')) {
+      disableDarkmode();
+    } else {
+      enableDarkmode();
+    }
+  });
+}
