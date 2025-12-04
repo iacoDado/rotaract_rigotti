@@ -1,6 +1,4 @@
 const FORM = document.getElementById("formPresidente");
-
-FORM.addEventListener("submit", e => {controllo(e)});
 const nome = document.getElementById("nome");
 const dataInizio = document.getElementById("dataInizio");
 const dataFine = document.getElementById("dataFine");
@@ -10,14 +8,6 @@ const yearMinAbsolute = 1900;
 dataInizio.setAttribute("min", yearMinAbsolute);
 dataInizio.setAttribute("max", yearToday);
 dataFine.setAttribute("max", yearToday + 1);
-
-
-function controllo(){
-    if(nome.value == "" || dataInizio.value == "" || dataFine.value == ""){
-        alert("CAMPI VUOTI");
-        //e.preventDefault();
-    }
-}
 
 
 function aggiornaDataFineMinimo() {
@@ -37,6 +27,5 @@ function aggiornaDataFineMinimo() {
         dataFine.removeAttribute("min");
     }
 }
-
 
 dataInizio.addEventListener("input", aggiornaDataFineMinimo);

@@ -22,15 +22,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $json = [];
     }
 
-    if(isset($nome) && !isset($_POST['dataInizio'])){
-        $nuovo_presidente = [
-            "nome" => $nome,
-            "mandato" => $mandato
-        ];
     
-    
-        $json['presidenti'][] = $nuovo_presidente;
-    }
+    $nuovo_presidente = [
+        "nome" => $nome,
+        "mandato" => $mandato
+    ];
+
+    $json['presidenti'][] = $nuovo_presidente;
+
 
 
     if (file_put_contents($json_path, json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE))) {
@@ -65,11 +64,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <form action="" method="POST" id="formPresidente">
         <label>Nome: </label>
-        <input type="text" id="nome" name="nome" placeholder="Inserisci nome e cognome"><br><br>
+        <input type="text" id="nome" name="nome" placeholder="Inserisci nome e cognome" required><br><br>
         <label>Mandato: </label>
-        <input type="number" id="dataInizio" name="dataInizio" min="" max="" >
+        <input type="number" id="dataInizio" name="dataInizio" min="" max="" required>
         <label> - </label>
-        <input type="number" id="dataFine" name="dataFine" min="" max="">
+        <input type="number" id="dataFine" name="dataFine" min="" max="" required>
         
         
         <br><br>

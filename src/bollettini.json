@@ -1,6 +1,6 @@
 {
     "bollettini" : [
-        {"data": "Ott 2025", "titolo": "Attività 1", "percorso": "ciao"},
-        {"data": "Set 2025", "titolo": "Attività 2", "percorso": "ciao"}
+        {"data": "Ott 2025", "titolo": "Attività 1", "percorso": "../src/Informativa Privacy.pdf"},
+        {"data": "Set 2025", "titolo": "Attività 2", "percorso": "../src/Informativa Privacy.pdf"}
     ]
 }
