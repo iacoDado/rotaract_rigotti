@@ -47,6 +47,10 @@ h1 {
     align-items: center;
 }
 
+.layoutPatrocinatori h2 {
+    color: var(--grigioTesto);
+}
+
 .patrocinatori {
     display: flex;
 

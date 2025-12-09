@@ -29,7 +29,7 @@ body {
     font-family: 'ralewayY', sans-serif;
     line-height: 1.6;
     color: var(--color-text);
-    background-color: var(--color-background);
+    background-color: var(--colorePrimario);
     margin: 0;
     padding: 0;
     font-weight: 300;
@@ -37,7 +37,11 @@ body {
 
 h1, h2, h3, strong {
     font-weight: 700;
-    color: #222;
+    color: var(--colorePrimarioStoria);
+}
+
+p {
+    color: var(--colorePrimarioStoria);
 }
 
 
@@ -54,6 +58,7 @@ h1, h2, h3, strong {
     background-color: #fff;
     border-bottom: 3px solid var(--color-rotaract-main);
 }
+
 .hero-section h1 {
     color: var(--color-rotaract-main);
 }
@@ -155,10 +160,11 @@ h1, h2, h3, strong {
 }
 
 .timeline-content {
-    background: #fff;
+    background: var(--divStoria);
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     padding: 20px;
+    color: var(--colorePrimarioStoria);
 }
 
 .callout {
@@ -169,10 +175,16 @@ h1, h2, h3, strong {
     border-radius: 3px;
     font-size: 0.9em;
 }
+
+.callout p {
+    color: black;
+}
+
 .callout strong {
     color: var(--color-rotaract-main); 
     font-weight: 700;
 }
+
 
 
 @media (max-width: 768px) {
