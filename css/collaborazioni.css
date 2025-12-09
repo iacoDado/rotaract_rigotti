@@ -5,7 +5,7 @@
 
 body {
     font-family: 'Raleway';
-    
+    background-color: var(--colorePrimario);    
     margin-top: 140px;
 }
 
@@ -14,7 +14,7 @@ a {
 }
 
 h1 {
-    color: #c11f5d;
+    color: var(--rosaSecondario)
 }
 
 .layoutTesto {
@@ -36,6 +36,7 @@ h1 {
 
 .layoutTesto p {
     margin-top: 0px;
+    color: var(--grigioTesto);
     text-align: center;
 }
 
@@ -61,7 +62,7 @@ h1 {
     border-radius: 8px;
     text-align: center;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px var(--ombraBottone);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
