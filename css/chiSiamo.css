@@ -21,7 +21,9 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 0px;
+    margin-top: 140px;
     gap: 40px;
+    background-color: var(--colorePrimario);
 }
 
 .storia button {

@@ -10,11 +10,12 @@
 
 body {
     margin-top: 200px;
+    background-color: var(--colorePrimario);
 }
 
 .scritta_grande {
     font-family: "raleway";
-    color: #c11f5d;
+    color: var(--rosaSecondario);
     font-size: 35px;
 }
 
@@ -32,7 +33,7 @@ input {
 
 
 input:focus {
-    border-bottom-color: #c11f5d;
+    border-bottom-color: var(--rosaSecondario);
 }
 
 
@@ -84,7 +85,7 @@ textarea {
 
 /* Aggiungi anche lo stile al focus per la textarea */
 textarea:focus {
-    border-color: #c11f5d;
+    border-color: var(--rosaSecondario);
 }
 
 form {

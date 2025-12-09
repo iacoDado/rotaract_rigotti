@@ -1,16 +1,33 @@
-
 :root {
+    /* VERSIONE CHIARA */
     --coloreNavbar: white;
-    --colorePrimario: white;
-    --titoloImmagine: white;
-    --rosaSecondario: #c11f5d;
-    --grigioTesto: #616161;
+    --testoNavbar: #333;        /* testo della navbar */
+    --colorePrimario: #f7f7f7;  /* sfondo principale della pagina */
+    --colorePrimarioStoria: #333;
+    --titoloImmagine: #c11f5d;  /* titoli principali */
+    --rosaSecondario: #c11f5d;  
+    --divStoria: #f7f7f7;
+    --grigioTesto: #333;        /* testo normale */
+    --ombraBottone: rgba(0,0,0,0.1);
+    --grigioScritteService: #333; /* testo interno dei div */
+    --divService: #ffffff;        /* sfondo dei box div */
+    --bulletColor: #c11f5d;      /* colore dei bullet della lista */
+    --color-rotaract-main-callout: #e599b5;
 }
 
 .scuro {
-    --coloreNavbar: #000008;
-    --colorePrimario: black;
-    --titoloImmagine: white;
-    --rosaSecondario: #c11f5d;
-    --grigioTesto: #616161;
+    /* VERSIONE SCURA */
+    --coloreNavbar: #1a1a1a;        /* navbar più scura */
+    --testoNavbar: #f7f7f7;
+    --colorePrimario: #1a1a1a;  /* sfondo principale pagina */
+    --colorePrimarioStoria: #f7f7f7;
+    --titoloImmagine: #c11f5d;  
+    --rosaSecondario: #c11f5d;  
+    --divStoria: #333;
+    --grigioTesto: #ddd;
+    --ombraBottone: rgba(255, 255, 255, 0.1);
+    --grigioScritteService: #ddd; /* testo interno dei div */
+    --divService: #2a2a2a;       /* sfondo dei box div */
+    --bulletColor: #c11f5d;      /* bullet rimane rosa */
+    --color-rotaract-main-callout: #333;
 }
