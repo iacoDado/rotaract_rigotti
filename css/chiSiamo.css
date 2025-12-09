@@ -79,6 +79,7 @@ body {
 
 .rigaTempo td::before {
     content: attr(data-anno);
+    font-family: "ralewayMagro";
     
     /* Stile e forma del pallino */
     display: block;
@@ -242,6 +243,7 @@ b {
     right: 70%;
     transform: translateY(-68%);
 
+    font-family: "ralewayMagro";
 }
 
 

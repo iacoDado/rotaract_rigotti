@@ -12,11 +12,16 @@ function controllo (e){
     if(nome != "" && mail != ""){
         if(!regexEmail.test(nome) && !regexEmail.test(mail)){
             e.preventDefault();
-            alert("ERRORE NELLA COMPILAZIONE DEI CAMPI");
+            alert("Errore nella compilazione dei campi");
         }
     }else{
         e.preventDefault();
         alert("Campi vuoti");
+    }
+
+    if(!document.getElementById("accetto").checked){
+        e.preventDefault();
+        alert("Senza accettare l'informativa non si può mandare l'email");
     }
 
 }
