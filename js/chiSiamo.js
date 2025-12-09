@@ -2,7 +2,7 @@
 //Creo la linea del tempo dinamicamente
 creaLineaTempo();
 
-//TODO: rifare gestione errori per tutto
+//Bisognerebbe rifare la gestione errori per tutto, ma in realtà se ci sono errori semplicemente non carica la linea del tempo
 
 async function creaLineaTempo() {
     //Carico la lista dei presidenti; la funzione è asincrona e devo aspettarla, quindi uso l'await per farlo;
@@ -10,7 +10,7 @@ async function creaLineaTempo() {
     var jsonPresidenti = await caricaPresidenti();
 
     //Calcolo dopo quante caselle (oltre alla prima) della prima riga dovrò iniziare a inserire i presidenti,
-    //in modo che l'anno del mandato corrisponda a quello della casella
+    //in modo che l'anno del primo mandato corrisponda a quello della casella
     var offsetStart = parseInt(jsonPresidenti.presidenti[0].mandato.split("-")[0].trim())%10;
 
     //Determino il numero di righe di cui ho bisogno
@@ -23,7 +23,7 @@ async function creaLineaTempo() {
 }
 
 function costruisciLineaTempo(nRighe, offStart, listaPresidenti) {
-    //Creo la tabella che uso come linea del tempo
+    //Creo la tabella che uso come linea del tempo; nella variabile avrò la lista dei div contenuti nelle caselle della tabella
     var aDiv = costruisciTabella(parseInt(listaPresidenti[0].mandato.split("-")[0]), nRighe, 11, "tabTempo");
 
     var offsetDiv = 0;
@@ -58,8 +58,7 @@ function costruisciLineaTempo(nRighe, offStart, listaPresidenti) {
             //Mi calcolo gli anni di inizio e fine mandato in formato 'AA
             anno = (anno )%100;
             annod = (anno+1)%100;
-            //Se risultano corti ('1, '2, '3, '4, '5, '6, '7, '8, '9, '0) concateno uno zero prima
-            //per una questione di uniformità di formato
+            //Se risultano corti ('1, '2, '3, '4, '5, '6, '7, '8, '9, '0) concateno uno zero prima per una questione di uniformità di formato
             if (annod.toString().length<2) {
                 annod="0"+annod
             }
@@ -75,7 +74,7 @@ function costruisciLineaTempo(nRighe, offStart, listaPresidenti) {
             //Assegno alla casella un attributo con l'anno, così da farlo mostrare dalla pseudo classe ::before nel css
             div.parentElement.setAttribute("data-anno", "'" + anno + "-" + "'" +  annod);
 
-            //Aumento la variabile di selezione del dei div
+            //Aumento la variabile di selezione dei div
             offsetDiv += 2;
         } else {
             //Se il decennio è pari i presidenti andranno inseriti nella riga da sinistra a destra
@@ -115,65 +114,95 @@ function costruisciLineaTempo(nRighe, offStart, listaPresidenti) {
 }
 
 function costruisciTabella(annoIniziale, nR, nC, id) {
+    //Recupero la tabella da modificare
     var t = document.getElementById(id);
+    //Vettore dei div contenuti nelle caselle
     var divList = new Array(0);
+    //Determino il decennio iniziale, mi serve per gli id
     var decennio = Math.floor(annoIniziale/10);
 
+    //Ciclo in base al numero di righe
     for (var i = 0; i < nR; i++) {
+        //Creo la riga
         var r = document.createElement("tr");
+        //Le assegno l'id in base al decennio che rappresenta
         r.id = "riga" + decennio + "0";
+        //Le assegno la classe relativa
         r.className = "rigaTempo";
 
+        //Ciclo in base al numero di caselle per riga
         for (var j = 0; j < nC; j++) {
+            //Creo la casella
             var c = document.createElement("td");
+            //Creo il div che sarà contenuto dalla casella
             var d = document.createElement("div");
 
+            //Assegno al div la classe relativa
             d.className = "divAnno";
 
+            //Aggiungo il div nella lista
             divList.push(d);
+            //Inserisco il div nella casella
             c.appendChild(d);
+            //Inserisco la casella nella riga
             r.appendChild(c);
         }
+        //Inserisco la riga nella tabella
         t.appendChild(r);
+        //Aumento il decennio: la prossima riga sarà relativa al decennio successivo di quella attuale
         decennio ++;
     }
 
+    //Di risultato ritorno la lista di div
     return divList;
 }
 
 //Funziona solo con un modello client-server, quindi per far si che funzioni in locale devo usare live server
 async function caricaPresidenti() {
+    //Tramite la fetch recupero i contenuti del file che contiene i presidenti in formato json
     const response = await fetch("../src/presidenti.json");
+    //Converto il contenuto in un oggetto json
     const testoJson = await response.json();
+    //Ritorno il risultato
     return testoJson;
 }
 
+//Quando il mouse va sopra agli anni, quindi al div, visualizzo il presidente con quegli anni di mandato
 function handleMouseEnter() {
+    //Determino la casella che contiene il div; this rappresenta l'elemento che chiama la funzione (quindi il div)
     var casella = this.parentElement;
 
-    // Evita duplicati se il mouse entra ed esce rapidamente
+    //Evita duplicati se il mouse entra ed esce velocemente; in caso ci siano già elementi con la classe specifica
+    //allora non ne inserisco altri 
     if (casella.querySelector('.info-pres-hover')) {
         return; 
     }
 
+    //Creo il paragrafo di testo che conterrà il nome del presidente
     const infoPres = document.createElement('p');
+    //Assegno al paragrafo una classe; serve per il controllo dei duplicati sopra
     infoPres.className = 'info-pres-hover'; 
     
+    //Inserisco nel paragrafo il nome del presidente, prendendolo dagli attributi del div
     infoPres.innerText = this.getAttribute("data-nome");
 
-    const br = document.createElement('br');
-    br.className = 'info-pres-hover';
-
-    casella.appendChild(br);
+    //Inserisco nella casella il paragrafo
     casella.appendChild(infoPres);
 }
 
+//Per togliere il nome del presidente quando il mouse esce dal div
 function handleMouseLeave() {
+    //Determino la casella in cui è contenuto il div che chiama la funzione
     var casella = this.parentElement;
+    //Lista con tutti gli elementi che hanno la classe specifica
     const elementiTemporanei = casella.querySelectorAll('.info-pres-hover');
 
+    //Elimino gli elementi uno per uno
     elementiTemporanei.forEach(el => {
+        //Controllando che esistano e che siano contenuti nella casella del div che ha chiamato il metodo
         if (el && el.parentElement === casella) {
+            //In caso soddisfino le condizioni li elimino; così facendo anche se altri elementi usano la stessa classe 
+            //non verranno eliminati
             casella.removeChild(el);
         }
     });
