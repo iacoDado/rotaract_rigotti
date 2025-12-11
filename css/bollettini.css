@@ -5,13 +5,18 @@
     color: #333;
 }
 
-/* --- SEZIONE 1: ULTIMO NUMERO (Minimal & Pulito) --- */
+
 .ultimo-numero {
-    background-color: #fae8ef; /* Verde molto chiaro, rilassante */
-    border-left: 6px solid #c11f5d; /* Accento verde volontariato */
+    background-color: #fae8ef;
+    border-left: 6px solid #c11f5d;
     padding: 25px;
     border-radius: 4px;
-    margin-bottom: 40px; /* Spazio prima dell'archivio */
+    margin-bottom: 40px;
+}
+
+body {
+    background-color: var(--colorePrimario);
+    margin-top: 200px;
 }
 
 .ultimo-label {
@@ -45,7 +50,11 @@
     transform: scale(1.1);
 }
 
-/* --- SEZIONE 2: ARCHIVIO STORICO (Gestione di molti elementi) --- */
+
+
+
+
+
 .titolo-archivio {
     font-size: 1.2em;
     border-bottom: 2px solid #eee;
@@ -54,22 +63,22 @@
     color: #666;
 }
 
-/* Questo contenitore gestisce i "molti" giornalini */
+
 .lista-scrollabile {
-    max-height: 300px; /* Altezza fissa: se supera, appare la scrollbar */
-    overflow-y: auto;  /* Abilita lo scorrimento verticale */
+    max-height: 300px; 
+    overflow-y: auto;
     border: 1px solid #eee;
     border-radius: 4px;
 }
 
-/* Stile della singola riga dell'archivio */
+
 .riga-archivio {
     display: flex;
-    justify-content: space-between; /* Data a sinistra, titolo/link a destra */
+    justify-content: space-between; 
     align-items: center;
     padding: 12px 15px;
     border-bottom: 1px solid #f0f0f0;
-    background-color: #fff;
+    background-color: var(--colorePrimario);
     transition: background-color 0.2s;
 }
 
@@ -82,16 +91,16 @@
 }
 
 .data-archivio {
-    font-family: monospace; /* Per allineare bene le date */
+    font-family: monospace;
     color: #888;
     font-size: 0.9em;
-    min-width: 100px; /* Mantiene l'allineamento */
+    min-width: 100px;
 }
 
 .link-archivio {
-    color: #333;
+    color: #888;
     text-decoration: none;
-    flex-grow: 1; /* Occupa lo spazio rimanente */
+    flex-grow: 1;
     padding-left: 15px;
 }
 
@@ -100,7 +109,10 @@
     text-decoration: underline;
 }
 
-/* Personalizzazione Scrollbar (Opzionale - per renderla più carina su Chrome/Safari) */
+
+
+
+
 .lista-scrollabile::-webkit-scrollbar {
     width: 8px;
 }

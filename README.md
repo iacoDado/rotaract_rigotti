@@ -10,7 +10,7 @@ Sviluppo di un sito rappresentativo per l’associazione no profit **Rotaract**,
 Nel terminale bash di Visual Studio Code usare il comando, nella cartella che si vuole adibire al progetto:
 
 ```bash
-git clone [https://github.com/ScarpeDiGomma/rotaract_rigotti.git](https://github.com/ScarpeDiGomma/rotaract_rigotti.git)
+git clone (https://github.com/ScarpeDiGomma/rotaract_rigotti.git)
 ```
 
 ## Uso

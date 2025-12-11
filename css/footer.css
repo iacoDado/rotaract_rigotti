@@ -56,7 +56,7 @@
   .footer-section p {
     margin: 5px 0;
     font-size: 0.9em;
-    color: #313131;
+    color: var(--grigioTesto);
   }
 
   /* Linea di separazione */
@@ -72,7 +72,11 @@
     width: 100%;
     text-align: right;
     font-size: 0.85em;
-    color: #313131;
+    color: var(--grigioTesto);
+  }
+
+  h5 {
+    color: var(--grigioTesto);
   }
 
 

@@ -9,6 +9,10 @@
     src: url("../font/static/Raleway-Light.ttf") format("truetype");
 }
 
+body {
+    background-color: var(--colorePrimario);
+}
+
 #contenuto-principale {
     max-width: 900px; 
     width: 90%;
@@ -19,7 +23,7 @@
 
 .scritte_interne {
     font-family: "ralewayX", sans-serif;
-    color: #333; 
+    color: var(--grigioScritteService); 
     max-width: 100%;
     line-height: 1.8;
     text-align: justify; 
@@ -35,7 +39,7 @@
 
 #contenuto-principale h2 {
     font-family: "ralewayGrassetto";
-    color: #c11f5d; 
+    color: var(--titoloImmagine); 
     font-size: 2em;
     margin-top: 40px;
     margin-bottom: 20px;
@@ -52,7 +56,7 @@
 
 #hero-service h1 {
     font-family: "ralewayGrassetto";
-    color: #c11f5d;
+    color: var(--titoloImmagine);
     font-size: 40px;
     margin: 0;
 }
@@ -60,15 +64,15 @@
 #hero-service p {
     font-family: "ralewayX";
     font-size: 1.2em;
-    color: #616161;
+    color: var(--grigioTesto);
     margin-top: 10px;
 }
 
 #cinque-vie-azione {    
     margin: 40px 0;
     padding: 30px;
-    border: 1px solid #c11f5d30; 
-    background-color: #fff9fc; 
+    border: 1px solid var(--rosaSecondario); 
+    background-color: var(--divService); 
     border-radius: 5px;
 }
 
@@ -79,7 +83,7 @@
 
 #cinque-vie-azione li {
     font-family: "ralewayX";
-    color: #333;
+    color: var(--grigioScritteService);
     margin-bottom: 25px;
     padding-left: 35px;
     position: relative;
@@ -88,7 +92,7 @@
 
 #cinque-vie-azione li::before {
     content: "●"; 
-    color: #c11f5d;
+    color: var(--bulletColor);
     font-size: 1.2em;
     position: absolute;
     left: 0;
@@ -97,7 +101,7 @@
 
 #cinque-vie-azione li strong {
     font-family: "ralewayX";
-    color: #000;
+    color: var(--grigioTesto);
     font-weight: bold;
 }
 
